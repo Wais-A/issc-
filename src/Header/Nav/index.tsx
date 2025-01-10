@@ -25,7 +25,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
           {/* If subItems exist, use DropdownMenu for submenus */}
           {subItems && subItems.length > 0 ? (
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+              <DropdownMenuTrigger  asChild>
                 <Button variant="outline">
                   <span>{link.label}</span>
                 </Button>
