@@ -9,6 +9,7 @@ import type { Header } from '@/payload-types'
 import { Logo } from '@/components/Logo/Logo'
 import { HeaderNav } from './Nav'
 
+
 interface HeaderClientProps {
   data: Header
 }
@@ -19,6 +20,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
   const pathname = usePathname()
 
+  
   useEffect(() => {
     setHeaderTheme(null)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,6 +37,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         <Link href="/">
           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
         </Link>
+        {/* Pass navigation data to HeaderNav */}
         <HeaderNav data={data} />
       </div>
     </header>

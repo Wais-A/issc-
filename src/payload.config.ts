@@ -5,6 +5,7 @@ import sharp from 'sharp' // sharp-import
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
@@ -91,4 +92,5 @@ export default buildConfig({
     },
     tasks: [],
   },
+  email: nodemailerAdapter(),
 })
