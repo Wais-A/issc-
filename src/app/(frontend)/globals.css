@@ -179,10 +179,10 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border scrollbar-hide;
   }
   body {
-    @apply bg-background text-foreground min-h-[100vh] flex flex-col;
+    @apply bg-background text-foreground min-h-[100vh] flex flex-col ;
   }
   .header-text, .footer-text {
     color: hsl(var(--header-footer-text));

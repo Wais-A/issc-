@@ -11,7 +11,7 @@ export default {
     './src/**/*.{ts,tsx}',
   ],
   darkMode: ['selector', '[data-theme="dark"]'],
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography'),  require('tailwind-scrollbar-hide')],
   prefix: '',
   safelist: [
     'lg:col-span-4',

@@ -57,7 +57,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         {/* Logo Section - Contains site logo with link to home */}
         <div className="flex self-center">
           <Link href="/">
-            <Logo loading="eager" priority="high" className="invert dark:invert-0" />
+            <Logo loading="eager" priority="high"  />
           </Link>
         </div>
         {/* Navigation Section - Positioned at bottom using flex layout */}

@@ -15,7 +15,7 @@ import {
 
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { SearchIcon } from 'lucide-react'
+import { SearchIcon, ChevronDown} from 'lucide-react'
 
 /**
  * A navigation component for the header that displays navigation items and a search icon.
@@ -36,20 +36,21 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
 
   return (
     // Main navigation container with flex layout and spacing
-    <nav className="flex gap-3 items-center  ">
+    <nav className="flex gap-3 items-center   ">
       {/* Map through navigation items to create links or dropdowns */}
       {navItems.map(({ link, subItems, id }) => (
-        <div key={id} className="relative">
+        <div key={id} className="relative ">
           {/* If subItems exist, create a dropdown menu */}
           {subItems && subItems.length > 0 ? (
             <DropdownMenu>
               {/* Dropdown trigger button styled with primary colors */}
               <DropdownMenuTrigger
-                className="bg-primary hover:bg-primary text-mainTextColor hover:text-headerFooterColor"
+                className="bg-primary hover:bg-primary text-mainTextColor hover:text-headerFooterColor "
                 asChild
               >
                 <Button variant="outline">
                   <span>{link.label}</span>
+                  <ChevronDown color="#000000" size={20} />
                 </Button>
               </DropdownMenuTrigger>
               {/* Dropdown content container */}
