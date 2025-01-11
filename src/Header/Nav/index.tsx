@@ -25,15 +25,15 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
           {/* If subItems exist, use DropdownMenu for submenus */}
           {subItems && subItems.length > 0 ? (
             <DropdownMenu>
-              <DropdownMenuTrigger  asChild>
-                <Button variant="outline">
+              <DropdownMenuTrigger asChild>
+                <Button variant="default" className="hover:bg-blue-950 text-white bg-blue-900">
                   <span>{link.label}</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="justify-items-center ">
+              <DropdownMenuContent className="justify-items-center bg-blue-900">
                 {subItems.map(({ link: subLink }, j) => (
-                  <DropdownMenuItem key={j}>
-                    <CMSLink {...subLink} appearance="link" />
+                  <DropdownMenuItem key={j} className="hover:!bg-blue-900">
+                    <CMSLink {...subLink} appearance="link" className=" text-white" />
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
