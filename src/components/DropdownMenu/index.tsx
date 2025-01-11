@@ -9,6 +9,10 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 
+
+
+
+
 interface DropdownMenuProps {
   navItems: Array<{
     label: string
@@ -19,11 +23,11 @@ interface DropdownMenuProps {
 
 export const DropdownMenuDemo: React.FC<DropdownMenuProps> = ({ navItems }) => {
   return (
-    <DropdownMenu>
+    <DropdownMenu >
       <DropdownMenuTrigger asChild>
         <Button variant="outline">Menu</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent >
         {navItems.map((item, index) => (
           <div key={index}>
             {item.subItems ? (

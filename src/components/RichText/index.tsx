@@ -39,13 +39,13 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) 
   ...defaultConverters,
   ...LinkJSXConverter({ internalDocToHref }),
   blocks: {
-    banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
+    banner: ({ node }) => <BannerBlock className="col-start-2 mb-4 " {...node.fields} />,
     mediaBlock: ({ node }) => (
       <MediaBlock
-        className="col-start-1 col-span-3"
+        className="col-start-1 col-span-3 "
         imgClassName="m-0"
         {...node.fields}
-        captionClassName="mx-auto max-w-[48rem]"
+        captionClassName="mx-auto max-w-[48rem] "
         enableGutter={false}
         disableInnerContainer={true}
       />
@@ -70,7 +70,7 @@ export default function RichText(props: Props) {
         {
           'container ': enableGutter,
           'max-w-none': !enableGutter,
-          'mx-auto prose md:prose-md dark:prose-invert ': enableProse,
+          'mx-auto prose md:prose-md dark:prose-invert !text-sky-': enableProse,
         },
         className,
       )}

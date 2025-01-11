@@ -1,3 +1,7 @@
+/* eslint-disable import/no-anonymous-default-export */
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -43,6 +47,9 @@ export default {
       },
     },
     extend: {
+      backgroundImage: {
+        headerFooter: "url('/media/images/bg.png')",
+      },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
@@ -53,6 +60,9 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        headerFooterText: 'hsl(var(--header-footer-text))',
+        mainTextColor: 'hsl(var(--main-text-color))',
+        headerFooterColor: 'hsl(var(--header-footer-color))',
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',

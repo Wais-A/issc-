@@ -13,74 +13,167 @@
     font-weight: auto;
   }
 
+/* 0% darker 100% lighter*/
+
+
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* For body background and main component */
+    --background: 220 47% 96%;
 
-    --card: 240 5% 96%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* For text colors, button text colors, paragraphs, etc. */
+    --foreground: 233 100% 0%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* For header and footer text */
+    --header-footer-text: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* For body text and most parts */
+    --main-text-color: 0 0% 0%;
+
+    /* For card background */
+    --card: 217 90% 27%;
+
+    /* For card text colors */
+    --card-foreground: 233 100% 95%;
+
+    /* For card background */
+    --header-footer-color: 217 90% 27%;
+
+    /* For popover background */
+    --popover: 220 47% 96%;
+
+    /* For popover text colors */
+    --popover-foreground: 233 100% 35%;
+
+    /* For primary buttons and highlights */
+    --primary: 220 47% 96%;
+
+    /* For primary button text colors */
     --primary-foreground: 210 40% 98%;
 
+    /* For secondary elements background */
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
 
+    /* For secondary elements text colors */
+    --secondary-foreground: 216 57% 35%;
+
+    /* For muted elements background */
     --muted: 210 40% 96.1%;
+
+    /* For muted elements text colors */
     --muted-foreground: 215.4 16.3% 46.9%;
 
+    /* For accent elements background */
     --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
 
+    /* For accent elements text colors */
+    --accent-foreground: 216 57% 35%;
+
+    /* For destructive actions background */
     --destructive: 0 84.2% 60.2%;
+
+    /* For destructive actions text colors */
     --destructive-foreground: 210 40% 98%;
 
+    /* For border colors */
     --border: 240 6% 90%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
 
+    /* For input fields background */
+    --input: 214.3 31.8% 91.4%;
+
+    /* For focus ring colors */
+    --ring: 233 100% 35%;
+
+    /* For border radius */
     --radius: 0.2rem;
 
+    /* For success messages background */
     --success: 196 52% 74%;
+
+    /* For warning messages background */
     --warning: 34 89% 85%;
+
+    /* For error messages background */
     --error: 10 100% 86%;
+
+
   }
 
   [data-theme='dark'] {
-    --background: 0 0% 0%;
+    /* For body background and main component in dark mode */
+    --background: 233 81% 10%;
+
+    /* For text colors, button text colors, paragraphs, etc. in dark mode */
     --foreground: 210 40% 98%;
 
-    --card: 0 0% 4%;
+     /* For header and footer text in dark mode */
+    --header-footer-text: 210 40% 98%;
+
+    /* For card background */
+    --header-footer-color: 233 100% 15%;
+
+    /* For body text in dark mode */
+    --mian-text-color: 210 40% 98%;
+
+    /* For card background in dark mode */
+    --card: 233 100% 15%;
+
+    /* For card text colors in dark mode */
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    /* For popover background in dark mode */
+    --popover: 233 100% 35%;
+
+    /* For popover text colors in dark mode */
     --popover-foreground: 210 40% 98%;
 
+    /* For primary buttons and highlights in dark mode */
     --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    /* For primary button text colors in dark mode */
+    --primary-foreground: 216 57% 35%;
+
+    /* For secondary elements background in dark mode */
+    --secondary: 233 81% 17.5%;
+
+    /* For secondary elements text colors in dark mode */
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
+    /* For muted elements background in dark mode */
+    --muted: 233 81% 17.5%;
+
+    /* For muted elements text colors in dark mode */
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
+    /* For accent elements background in dark mode */
+    --accent: 233 81% 17.5%;
+
+    /* For accent elements text colors in dark mode */
     --accent-foreground: 210 40% 98%;
 
+    /* For destructive actions background in dark mode */
     --destructive: 0 62.8% 30.6%;
+
+    /* For destructive actions text colors in dark mode */
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0, 0%, 15%, 0.5;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* For border colors in dark mode */
+    --border: 233 81% 10%;
 
+    /* For input fields background in dark mode */
+    --input: 233 81% 17.5%;
+
+    /* For focus ring colors in dark mode */
+    --ring: 233 81% 83.9%;
+
+    /* For success messages background in dark mode */
     --success: 196 100% 14%;
+
+    /* For warning messages background in dark mode */
     --warning: 34 51% 25%;
+
+    /* For error messages background in dark mode */
     --error: 10 39% 43%;
+
   }
 }
 
@@ -90,6 +183,12 @@
   }
   body {
     @apply bg-background text-foreground min-h-[100vh] flex flex-col;
+  }
+  .header-text, .footer-text {
+    color: hsl(var(--header-footer-text));
+  }
+  .body-text {
+    color: hsl(var(--body-text));
   }
 }
 

@@ -5,12 +5,14 @@ import React from 'react'
 import type { Header as HeaderType } from '@/payload-types'
 
 import { CMSLink } from '@/components/Link'
+
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
 } from '@/components/ui/dropdown-menu'
+
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { SearchIcon } from 'lucide-react'
@@ -25,15 +27,22 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
           {/* If subItems exist, use DropdownMenu for submenus */}
           {subItems && subItems.length > 0 ? (
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="default" className="hover:bg-blue-950 text-white bg-blue-900">
+              <DropdownMenuTrigger
+                className="bg-primary hover:bg-primary text-mainTextColor hover:text-headerFooterColor"
+                asChild
+              >
+                <Button variant="outline">
                   <span>{link.label}</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="justify-items-center bg-blue-900">
+              <DropdownMenuContent className="w-56  ">
                 {subItems.map(({ link: subLink }, j) => (
-                  <DropdownMenuItem key={j} className="hover:!bg-blue-900">
-                    <CMSLink {...subLink} appearance="link" className=" text-white" />
+                  <DropdownMenuItem className="bg-primary hover:!bg-primary " key={j}>
+                    <CMSLink
+                      {...subLink}
+                      className="text-mainTextColor hover:text-headerFooterColor"
+                      appearance="link"
+                    />
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>

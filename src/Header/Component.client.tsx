@@ -10,8 +10,8 @@ import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
 import { HeaderNav } from './Nav'
-
 // Define the props for the HeaderClient component
+
 interface HeaderClientProps {
   data: Header
 }
@@ -37,8 +37,8 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
   return (
     // Render the header with the theme if it exists
-    <header className="container relative z-20" {...(theme ? { 'data-theme': theme } : {})}>
-      <div className="py-8 flex justify-between">
+    <header className=" relative z-20" {...(theme ? { 'data-theme': theme } : {})}>
+      <div className="py-8 w-full h-[250px] bg-fixed  flex justify-between  bg-headerFooterColor text-headerFooterText">
         {/* Link to the homepage with the Logo component */}
         <Link href="/">
           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
