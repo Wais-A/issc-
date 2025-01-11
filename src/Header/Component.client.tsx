@@ -1,50 +1,69 @@
 'use client'
 
-// Import necessary hooks and components
+/**
+ * Import Section
+ * - Hooks for theme and routing
+ * - Component dependencies
+ * - Types
+ */
 import { useHeaderTheme } from '@/providers/HeaderTheme'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-
 import type { Header } from '@/payload-types'
-
 import { Logo } from '@/components/Logo/Logo'
 import { HeaderNav } from './Nav'
-// Define the props for the HeaderClient component
 
+/**
+ * Component Props Interface
+ * @property {Header} data - Header data from CMS
+ */
 interface HeaderClientProps {
   data: Header
 }
 
-// Define the HeaderClient component
+/**
+ * HeaderClient Component
+ * Renders the main header with theme support and navigation
+ * @param {HeaderClientProps} props - Component properties
+ */
 export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
-  // State to store the theme to avoid hydration errors
+  // Theme state management
   const [theme, setTheme] = useState<string | null>(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
   const pathname = usePathname()
 
-  // Effect to reset the header theme when the pathname changes
+  /**
+   * Effect: Reset header theme on route change
+   */
   useEffect(() => {
     setHeaderTheme(null)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
 
-  // Effect to update the theme state when the headerTheme changes
+  /**
+   * Effect: Update theme state when headerTheme changes
+   */
   useEffect(() => {
     if (headerTheme && headerTheme !== theme) setTheme(headerTheme)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [headerTheme])
 
   return (
-    // Render the header with the theme if it exists
-    <header className=" relative z-20" {...(theme ? { 'data-theme': theme } : {})}>
-      <div className="py-8 w-full h-[250px] bg-fixed  flex justify-between  bg-headerFooterColor text-headerFooterText">
-        {/* Link to the homepage with the Logo component */}
-        <Link href="/">
-          <Logo loading="eager" priority="high" className="invert dark:invert-0" />
-        </Link>
-        {/* Pass navigation data to HeaderNav */}
-        <HeaderNav data={data} />
+    // Header container with z-index and optional theme data attribute
+    <header className="z-20" {...(theme ? { 'data-theme': theme } : {})}>
+      {/* Main header section with background and text styling */}
+      <div className="py-8 w-full h-[250px] bg-fixed flex flex-col bg-headerFooterColor text-headerFooterText">
+        {/* Logo Section - Contains site logo with link to home */}
+        <div className="flex-none">
+          <Link href="/">
+            <Logo loading="eager" priority="high" className="invert dark:invert-0" />
+          </Link>
+        </div>
+        {/* Navigation Section - Positioned at bottom using flex layout */}
+        <div className="flex-1 flex items-end">
+          <HeaderNav data={data} />
+        </div>
       </div>
     </header>
   )

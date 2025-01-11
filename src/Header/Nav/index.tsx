@@ -17,16 +17,33 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { SearchIcon } from 'lucide-react'
 
+/**
+ * A navigation component for the header that displays navigation items and a search icon.
+ * Supports both regular links and dropdown menus for items with sub-items.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {HeaderType} props.data - Header data containing navigation items
+ * @param {Array} props.data.navItems - Array of navigation items to display
+ * @param {Object} props.data.navItems[].link - Link information for each nav item
+ * @param {Array} props.data.navItems[].subItems - Optional sub-items for dropdown menus
+ * @param {string} props.data.navItems[].id - Unique identifier for each nav item
+ *
+ * @returns {JSX.Element} Navigation component with links and dropdowns
+ */
 export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   const navItems = data?.navItems || []
 
   return (
-    <nav className="flex gap-3 items-center">
-      {navItems.map(({ link, subItems }, i) => (
-        <div key={i} className="relative">
-          {/* If subItems exist, use DropdownMenu for submenus */}
+    // Main navigation container with flex layout and spacing
+    <nav className="flex gap-3 items-center  ">
+      {/* Map through navigation items to create links or dropdowns */}
+      {navItems.map(({ link, subItems, id }) => (
+        <div key={id} className="relative">
+          {/* If subItems exist, create a dropdown menu */}
           {subItems && subItems.length > 0 ? (
             <DropdownMenu>
+              {/* Dropdown trigger button styled with primary colors */}
               <DropdownMenuTrigger
                 className="bg-primary hover:bg-primary text-mainTextColor hover:text-headerFooterColor"
                 asChild
@@ -35,9 +52,11 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
                   <span>{link.label}</span>
                 </Button>
               </DropdownMenuTrigger>
+              {/* Dropdown content container */}
               <DropdownMenuContent className="w-56  ">
-                {subItems.map(({ link: subLink }, j) => (
-                  <DropdownMenuItem className="bg-primary hover:!bg-primary " key={j}>
+                {/* Map through sub-items to create dropdown menu items */}
+                {subItems.map(({ link: subLink, id }) => (
+                  <DropdownMenuItem className="bg-primary hover:!bg-primary " key={id}>
                     <CMSLink
                       {...subLink}
                       className="text-mainTextColor hover:text-headerFooterColor"
@@ -48,12 +67,12 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            // Render CMSLink directly if no subItems exist
+            // If no sub-items, render a simple CMS link
             <CMSLink {...link} appearance="link" />
           )}
         </div>
       ))}
-      {/* Search link at the end */}
+      {/* Search icon link with screen reader text */}
       <Link href="/search">
         <span className="sr-only">Search</span>
         <SearchIcon className="w-5 text-primary" />
