@@ -53,7 +53,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
     // Header container with z-index and optional theme data attribute
     <header className="z-20" {...(theme ? { 'data-theme': theme } : {})}>
       {/* Main header section with background and text styling */}
-      <div className="py-8 w-full h-[250px] bg-fixed flex flex-col bg-headerFooterColor text-headerFooterText p-[40px]">
+      <div className="py-8 w-full h-[300px] bg-fixed flex flex-col bg-headerFooterColor text-headerFooterText p-[40px]">
         {/* Logo Section - Contains site logo with link to home */}
         <div className="flex items-end justify-center text-center text-white">
           {/* Logo Section */}
